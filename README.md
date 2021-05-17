@@ -4,7 +4,7 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 ## Controller Node OS : Ubuntu
 ## Managed Nodes OS : CentOS, RHEL
 
-## To be run on all target nodes, CentOS, RHEL, Other Linux
+# To be run on all target nodes, CentOS, RHEL, Other Linux
 
 ### 1. Create a new user :
 > $ sudo adduser ansible_user\
@@ -27,7 +27,7 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 
 
 
-## To be run on ansible engine, Ubuntu OS
+# To be run on ansible engine, Ubuntu OS
 
 ### 1. Create a new user :
 > $ sudo adduser ansible_user\
