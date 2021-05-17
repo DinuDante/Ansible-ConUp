@@ -1,8 +1,8 @@
 # Ansible-ConUp
 Case Senario: Need Ansible for a number of managed nodes/servers, without their passwords shared, via a public/private key.
-\
+
 ## To be run on all target nodes, CentOS, RHEL, Other Linux
-\
+
 ### 1. Create a new user :
 > $ sudo adduser ansible_user\
 > $ sudo passwd ansible_user\
@@ -10,22 +10,22 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 > New password: \
 > Retype new password: \
 > passwd: all authentication tokens updated successfully.\
-\
+
 ### 2. Add it to the sudoers group
 > $ sudo usermod -aG wheel ansible_user
-\
+
 ### 3. Edit sudoers
 > $ sudo vi /etc/sudoers
-\
+
 ### 4. At the bottom of the file, please add the following line.
 > ansible_user ALL=(ALL) NOPASSWD:ALL
-\
+
 ### 5. Save and Exit
-\
-\
-\
+
+
+
 ## To be run on ansible engine, Ubuntu OS
-\
+
 ### 1. Create a new user :
 > $ sudo adduser ansible_user
 > [sudo] password for dinu: 
@@ -45,16 +45,16 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 >   Home Phone []: 
 >   Other []: 
 > Is the information correct? [Y/n] Y
-\
+
 ### 2. Add it to the sudoers group
 > $ sudo usermod -aG sudo ansible_user
-\
+
 ### 3. Become the user
 > $ su ansible_user$ su ansible_user
 > Password: 
 > To run a command as administrator (user "root"), use "sudo <command>".
 > See "man sudo_root" for details.
-\
+
 ### 4. Create a Key
 > $ ssh-keygen
 > Generating public/private rsa key pair.
@@ -81,9 +81,9 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 > $ ls -a
 > .   .bash_history  .bashrc   .ssh
 > ..  .bash_logout   .profile  .sudo_as_admin_successful
-\
+
 ### 5. Now that the key is created, run it on all the managed nodes
-\
+
 ### Syntax :
 ### ssh-copy-id -i ~/.ssh/id_rsa.pub    ansible_user@ip_address
 
@@ -95,17 +95,16 @@ Case Senario: Need Ansible for a number of managed nodes/servers, without their 
 > /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 > /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
 > ansible_user@192.168.1.6's password: 
-\
+
 ### 6. Number of key(s) added: 1
-\
+
 ### 7. Now try logging into the machine, with:   "ssh 'ansible_user@192.168.1.x'"
 ### 8. And check to make sure that only the key(s) you wanted were added.
-\
+
 ### 9. Verify if SSH is working :
-\
+
 ### Syntax:
 ### ssh ansible_user@ip_address
-\
+
 > $ ssh ansible_user@192.168.1.x
 > Activate the web console with: systemctl enable --now cockpit.socket
-
